@@ -64,6 +64,9 @@ export var InnerSlider = React.createClass({
       this.setState({currentSlide: nextProps.slickGoTo});
     }
     this.update(nextProps);
+    if (nextProps.hasOwnProperty('slickGoTo') && nextProps.slickGoTo >= 0){
+      this.slideHandler(nextProps.slickGoTo); 
+    }
   },
   componentDidUpdate: function () {
     this.adaptHeight();
