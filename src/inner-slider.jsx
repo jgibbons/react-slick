@@ -32,12 +32,17 @@ export var InnerSlider = React.createClass({
         lazyLoadedList.push(i);
       }
     }
+    
+    if (i >= this.props.initialSlide && i < this.props.initialSlide + this.props.slidesToShow) {
+      lazyLoadedList.push(i);
+    }
 
     if (this.props.lazyLoad && this.state.lazyLoadedList.length === 0) {
       this.setState({
         lazyLoadedList: lazyLoadedList
       });
     }
+
   },
   componentDidMount: function componentDidMount() {
     // Hack for autoplay -- Inspect Later
